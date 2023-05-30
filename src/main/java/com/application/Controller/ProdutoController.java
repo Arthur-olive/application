@@ -10,12 +10,12 @@ public class ProdutoController {
 
     @GetMapping("/listar")
     public String listar(){
-        return "modulos/produto/listar";
+        return "Modulos/Produto/listar";
     }
     
 
     @GetMapping("/adicionar")
     public String adicionar(){
-        return "modulos/produto/adicionar";
+        return "Modulos/Produto/adicionar";
     }
 }
