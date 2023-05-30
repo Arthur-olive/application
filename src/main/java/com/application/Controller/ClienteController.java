@@ -1,18 +1,22 @@
 package com.application.Controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("cliente")
 public class ClienteController {
 
-    @GetMapping("cliente/listar")
+    @GetMapping("/listar")
     public String listar(){
-        return "modulos/clientes/listar";
+        return "modulos/cliente/listar";
     }
     
 
-    @GetMapping("cliente/adicionar")
+    @GetMapping("/adicionar")
     public String adicionar(){
-        return "modulos/clientes/adicionar";
+        return "modulos/cliente/adicionar";
     }
     
 }
