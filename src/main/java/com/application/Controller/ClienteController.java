@@ -4,7 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.application.Model.Cliente;
 import com.application.Model.repository.ClienteRepository;
@@ -24,11 +26,19 @@ public class ClienteController {
         model.addAttribute("clientes", clientes);
         return "modulos/cliente/listar";
     }
-    
 
     @GetMapping("/adicionar")
     public String adicionar(){
         return "modulos/cliente/adicionar";
+    }
+
+    @PostMapping("/salvar")
+    public String salvar(Cliente cliente, BindingResult result){
+        if (result.hasFieldErrors()){
+            return "redirect:/cliente/adicionar";
+        }
+        repCliente.save(cliente);
+        return "redirect:/cliente/listar"; 
     }
     
     
