@@ -38,7 +38,7 @@ public class ProdutoController {
             return "redirect:/produto/adicionar";
         }
         repProduto.save(produto);
-        return "redirect:/produto/listar"; 
+        return "redirect:/produto"; 
     }
 
 
